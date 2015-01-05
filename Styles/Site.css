@@ -1,0 +1,16 @@
+﻿body {
+}
+
+.inline {display:inline-block}
+
+#years {
+    display: inline-block;
+    position: absolute;
+    left: 70%;
+}
+
+#data{width:30%}
+.legend-image{height:30px; width:30px}
+
+.splash {display:none;position:absolute;width:200px;background-color:#1076AD;z-index:2;color:#fff;border:2px solid #fff; font-size:larger; -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;}

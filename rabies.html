@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+   
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+
+    <script src="scripts/knockout-3.2.0.js"></script>
+
+    <script src="scripts/knockout-postbox.min.js"></script>
+
+    <link href="styles/Site.css" rel="stylesheet"/>
+
+
+    <link rel="stylesheet" href="http://js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">
+    <script src="http://js.arcgis.com/3.10/"></script>
+
+</head>
+<body>
+    <div >
+        
+    </div>
+    <div class="container body-content">
+        
+
+
+<div id="header">
+    <div class="inline"><input type="text" data-bind="value: address" placeholder="Enter address..." /></div>
+    <div class="inline"><button data-bind="click: search">Search</button></div>
+    <div class="inline"><button data-bind="click: reset">Reset</button></div>
+    <div id="years" >
+        <select data-bind="options: years, value: selectedYear"></select>
+    </div>
+    <div data-bind="foreach: legend">
+        <div class="inline" data-bind="text: caption"></div>
+        <div class="inline"><img data-bind="attr: {src: url}" class="legend-image"  /> </div>
+    </div>
+    
+</div>
+
+<div id="map">
+
+      <div id="splash" class="splash">
+         <div class="centerouter">
+            <div class="centerinner" style="margin:20px">Loading</div>
+            <div class="centerinner"><img  src="Png/spiffygif_90x90.gif" alt="loading..." /></div>
+            <div class="centerinner" ><button class="btnRegular" data-bind="click: close" style="margin:10px">Close</button></div>
+                           
+         </div>
+      </div>
+</div>
+
+<div id="data">
+    <div><b>Boulder County Positive Rabies Counts for </b><span data-bind="text: selectedYear"></span></div>
+    <table id="data" data-bind="foreach: counts" >
+        <tr>
+            <td data-bind="text: Animal"></td>
+            <td data-bind="text: Count"></td>
+        </tr>
+       
+    </table>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+    
+    require([
+      "http://maps.bouldercounty.org/rabies/viewmodel/MapViewModel.js"
+    ], function (mapmodule) {
+        mapmodule.buildMap();
+       
+    });
+</script>
+
+
+<script src="ViewModel/DataViewModel.js"></script>
+<script src="ViewModel/HeaderViewModel.js"></script>
+
+        
+    </div>
+
+    
+</body>
+</html>
